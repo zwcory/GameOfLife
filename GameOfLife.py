@@ -139,67 +139,39 @@ def get_neighbours(pos):
 """ PRESETS """
 def four_glider_collide(position):
     # lower right glider (y increases going down
-    lr_glider = [(5,3)
-                ,(4,3)
-                ,(3,3)
-                ,(3,4)
-                ,(4,5)]
+    lr_glider = [(5,3),(4,3),(3,3)
+                ,(3,4),(4,5)]
 
     # lower left
-    ll_glider = [(-5,3)
-                ,(-4,3)
-                ,(-3,3)
-                ,(-3,4)
-                ,(-4,5)]
+    ll_glider = [(-5,3),(-4,3),(-3,3)
+                ,(-3,4),(-4,5)]
 
     # upper right
-    ur_glider = [(5,-2)
-                ,(4,-2)
-                ,(3,-2)
-                ,(3,-3)
-                ,(4,-4)]
+    ur_glider = [(5,-2),(4,-2),(3,-2)
+                ,(3,-3),(4,-4)]
 
     # upper left
-    ul_glider = [(-5,-2)
-                ,(-4,-2)
-                ,(-3,-2)
-                ,(-3,-3)
-                ,(-4,-4)]
+    ul_glider = [(-5,-2),(-4,-2),(-3,-2)
+                ,(-3,-3),(-4,-4)]
 
     gliders = [ul_glider, ur_glider, ll_glider, lr_glider]
     return draw_sets(position,gliders)
 
 def bread_crumb_grenade(position):
-    tl = [(-1,-3)
-        ,(-1,-4)
-        ,(-2,-4)
-        ,(-3,-3)
-        ,(-3,-2)
-        ,(-2,-2)
+    tl = [(-1,-3),(-1,-4),(-2,-4)
+        ,(-3,-3),(-3,-2),(-2,-2)
         ,(0,-1)]
 
-    tr = [(2,-3)
-        ,(2,-4)
-        ,(3,-4)
-        ,(4,-3)
-        ,(4,-2)
-        ,(3,-2)
+    tr = [(2,-3),(2,-4),(3,-4)
+        ,(4,-3),(4,-2),(3,-2)
         ,(1,-1)]
 
-    br = [(2,3)
-        ,(2,4)
-        ,(3,4)
-        ,(4,3)
-        ,(4,2)
-        ,(3,2)
+    br = [(2,3),(2,4),(3,4)
+        ,(4,3),(4,2),(3,2)
         ,(1,0)]
 
-    bl = [(-1,3)
-        ,(-1,4)
-        ,(-2,4)
-        ,(-3,3)
-        ,(-3,2)
-        ,(-2,2)
+    bl = [(-1,3),(-1,4),(-2,4)
+        ,(-3,3),(-3,2),(-2,2)
         ,(0,0)]
 
     segments = [bl,br,tl,tr]
@@ -209,36 +181,180 @@ def bread_crumb_grenade(position):
 
 
 def glider_ur(position):
-    glider = [(0,0)
-        ,(-1,0)
-        ,(-2,0)
-        ,(0,1)
-        ,(-1,2)]
+    glider = [(0,0),(-1,0),(-2,0)
+            ,(0,1) ,(-1,2)]
     return draw_set(position, glider)
 
 def glider_dr(position):
-    glider = [(0,0)
-        ,(-1,0)
-        ,(-2,0)
-        ,(0,-1)
-        ,(-1,-2)]
+    glider = [(0,0),(-1,0),(-2,0)
+            ,(0,-1) ,(-1,-2)]
     return draw_set(position, glider)
 
 def glider_dl(position):
-    glider = [(0,0)
-        ,(1,0)
-        ,(2,0)
-        ,(0,-1)
-        ,(1,-2)]
+    glider = [(0,0),(1,0),(2,0)
+            ,(0,-1),(1,-2)]
     return draw_set(position, glider)
 
 def glider_ul(position):
-    glider = [(0,0)
-        ,(1,0)
-        ,(2,0)
-        ,(0,1)
-        ,(1,2)]
+    glider = [(0,0),(1,0),(2,0)
+            ,(0,1),(1,2)]
     return draw_set(position, glider)
+
+def two_ring_explosive(position):
+    left  = [(-3,-1),(-2,-1),(-1,-1),
+              (-3,0),(-1,0),
+             (-3,1), (-2,1),(-1,1)]
+    right = [(3,-1),(2,-1),(1,-1),
+             (3,0),(1,0),
+             (3,1), (2,1),(1,1)]
+    rings = [left,right]
+    return draw_sets(position, rings)
+
+def canada_goose(position):
+    tl = [(-6,-5), (-5,-5), (-4,-5),
+          (-6,-4), (-5,-3) ]
+
+    ml = [(-3,-2), (-2,-2), (-2,-1)]
+
+    tr = [(1,-2), (2,-2), (2,-3),
+          (3,-3), (4,-3), (4,-4),
+          (5,-4), (6,-3)]
+
+    mr =[(2,0),(3,1)]
+
+    lr = [(1,2), (2,2), (2,3),
+          (2,4), (1,4), (4,3),
+          (5,3)]
+
+    ll = [(-1,3),(-1,2),(-1,1),
+          (-2,1), (-3,2), (-3,3),
+          (-4,4), (-4,5), (-4,6),
+          (-3,5), (-3,6)]
+
+    segments = [tl, ml, tr, mr, lr, ll]
+    return draw_sets(position, segments)
+
+
+
+def copper_head(position):
+    tl = [(-3,-6),(-2,-6),(-1,-5),
+          (-1,-4),(-2,-3),(-4,-3),
+          (-4,-2)]
+
+    tr = [(2,-6),(1,-6),(0,-5),
+          (0,-4),(1,-3),(3,-3),
+          (3,-2)]
+
+    ll = [(-4,0),(-3,1),(-2,1),
+          (-2,2),(-1,2),(-1,4),
+          (-1,5)]
+
+    lr = [(3,0),(2,1),(1,1),
+          (1,2),(0,2),(0,4),
+          (0,5)]
+
+    segments = [tl,tr,ll,lr]
+    return draw_sets(position,segments)
+
+def space_filler(position):
+    left_wing = [(-24,-11), (-23,-11), (-22,-11),
+                 (-21,-11), (-24,-10), (-24,-9),
+                 (-23,-8),(-20,-8),(-20,-10),
+
+                 (-20,-4),(-20,-2),(-21,-1),
+                 (-22,-1),(-23,-1),(-24,-1),
+                 (-24,-2),(-24,-3),(-23,-4),
+
+                 (-15,-9),(-13,-8),(-12,-7),
+                 (-12,-6),(-12,-5),(-13,-4),
+                 (-15,-3),(-16,-4),(-17,-4),
+                 (-18,-5),(-18,-6),(-18,-7),
+                 (-17,-8),(-16,-8)]
+
+    right_wing = [(24,-11), (23,-11), (22,-11),
+                  (21,-11), (24,-10), (24,-9),
+                  (23,-8),(20,-8),(20,-10),
+
+                  (20,-4),(20,-2),(21,-1),
+                  (22,-1),(23,-1),(24,-1),
+                  (24,-2),(24,-3),(23,-4),
+
+                  (15,-9),(13,-8),(12,-7),
+                  (12,-6),(12,-5),(13,-4),
+                  (15,-3),(16,-4),(17,-4),
+                  (18,-5),(18,-6),(18,-7),
+                  (17,-8),(16,-8)]
+
+    left_feeler = [(-2,-9),(-2,-10),(-2,-11),
+                    (-2,-12),(-2,-13),(-3,-13),
+                    (-4,-13),(-5,-12)]
+
+    right_feeler = [(2,-9),(2,-10),(2,-11),
+                   (2,-12),(2,-13),(3,-13),
+                   (4,-13),(5,-12)]
+
+    mid_left = [(-4,-7), (-3,-7), (-2,-7),
+                (-3,-6), (-3,-5), (-2,-5),
+                (-1,-5), (-4,-4), (-5,-3),
+                (-4,-3), (-3,-3), (-2,-3),
+                (-1,-3),
+
+                (-10,-4), (-9,-4), (-11,-3),
+                (-10,-3), (-10,-2), (-9,-2),
+                (-9,-1), (-8,-1), (-8,0),
+                (-7,-1), (-6,-1), (-6,0),
+                (-5,-1), (-4,-1), (-3,-1),
+                (-2,-1), (-1,-1)]
+
+    mid_right = [(4,-7), (3,-7), (2,-7),
+                 (3,-6), (3,-5), (2,-5),
+                 (1,-5), (4,-4), (5,-3),
+                 (4,-3), (3,-3), (2,-3),
+                 (1,-3),
+
+                 (10,-4), (9,-4), (11,-3),
+                 (10,-3), (10,-2), (9,-2),
+                 (9,-1), (8,-1), (8,0),
+                 (7,-1), (6,-1), (6,0),
+                 (5,-1), (4,-1), (3,-1),
+                 (2,-1), (1,-1)]
+
+    center_mid = [(0,-5),(0,-3),(0,-1),
+                  (0,1),(0,3),(0,4)]
+
+    lower_left = [(-5,2), (-5,1), (-4,1),
+                  (-3,1), (-2,1), (-1,1),
+                  (-4,3), (-3,3), (-2,3),
+                  (-1,3), (-4,5), (-3,5),
+                  (-2,5), (-2,6)]
+
+    lower_right = [(5,2), (5,1), (4,1),
+                  (3,1), (2,1), (1,1),
+                  (4,3), (3,3), (2,3),
+                  (1,3), (4,5), (3,5),
+                  (2,5), (2,6)]
+
+    bottom_left = [(-3,8), (-2,8), (-1,8),
+                   (-1,9), (-1,10), (-2,11),
+                   (-3,12), (-4,11), (-4,10),
+                   (-3,9), (-2,9), (-2,10),
+                   (-3,11)]
+
+    bottom_right = [(3,8), (2,8), (1,8),
+                    (1,9), (1,10), (2,11),
+                    (3,12), (4,11), (4,10),
+                    (3,9), (2,9), (2,10),
+                    (3,11)]
+
+    segments = [left_wing, right_wing, left_feeler, right_feeler, mid_left, mid_right, center_mid, lower_left, lower_right, bottom_left, bottom_right]
+    return draw_sets(position,segments)
+
+def acorn(position):
+    shape = [(-3,0),(-2,0),(0,-1),
+             (-2,-2),(1,0),(2,0),
+             (3,0)]
+
+    return draw_set(position, shape)
 
 def draw_set(position, locations):
     positions = set()
@@ -292,6 +408,11 @@ class Game:
             pygame.K_d: self.place_glider_dr,
             pygame.K_r: self.set_random_colour,
             pygame.K_2: self.place_breadcrumb_gren,
+            pygame.K_3: self.place_two_ring,
+            pygame.K_4: self.place_canada_goose,
+            pygame.K_5: self.place_acorn,
+            pygame.K_6: self.place_copperhead,
+            pygame.K_7: self.place_space_filler,
 
         }
 
@@ -351,6 +472,37 @@ class Game:
             bread_crumb_grenade((col, row))
         )
 
+    def place_two_ring(self):
+        col, row = self.mouse_to_pixel()
+        self.positions.update(
+            two_ring_explosive((col, row))
+        )
+
+    def place_canada_goose(self):
+        col, row = self.mouse_to_pixel()
+        self.positions.update(
+            canada_goose((col, row))
+        )
+
+    def place_acorn(self):
+        col, row = self.mouse_to_pixel()
+        self.positions.update(
+            acorn((col, row))
+
+        )
+
+    def place_copperhead(self):
+        col, row = self.mouse_to_pixel()
+        self.positions.update(
+            copper_head((col, row))
+        )
+
+    def place_space_filler(self):
+        col, row = self.mouse_to_pixel()
+        self.positions.update(
+            space_filler((col, row))
+        )
+
     # ---------- helpers ----------
     def mouse_to_grid(self):
         mx, my = pygame.mouse.get_pos()
@@ -361,7 +513,6 @@ class Game:
 
     # ---------- main loop ----------
     def run(self):
-        randomize_colour()
         while self.running:
             clock.tick(FPS)
 
